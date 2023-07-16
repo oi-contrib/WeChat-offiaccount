@@ -1,0 +1,15 @@
+{
+  "name": "wechat-offiaccount",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "node ./nodejs/index.js"
+  },
+  "description": "微信公众号",
+  "author": "zxl20070701",
+  "license": "MIT",
+  "dependencies": {
+    "devby": "^0.4.4-alpha.0",
+    "express": "^4.18.2",
+    "sha1": "^1.1.1"
+  }
+}
