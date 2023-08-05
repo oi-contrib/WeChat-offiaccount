@@ -1,12 +1,13 @@
 const { get } = require('devby')
 const fs = require('fs')
 const path = require('path')
-const { appID, appsecret } = require('./config')
 
-const accessTokenPath = path.resolve(__dirname, '../access_token.json')
+const accessTokenPath = path.resolve(process.cwd(), './access_token.json')
 
 // 获取access_token
-function getAccessToken() {
+function getAccessToken(config) {
+    const { appID, appsecret } = config
+
     return new Promise((resolve, reject) => {
         // 定义请求地址
         const url = `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appID}&secret=${appsecret}`
@@ -34,11 +35,11 @@ function getAccessToken() {
     })
 }
 
-module.exports = () => {
+module.exports = (config) => {
 
     // 如果文件不存在，一定需要重新获取
     if (!fs.existsSync(accessTokenPath)) {
-        return getAccessToken()
+        return getAccessToken(config)
     } else {
         let data = JSON.parse(fs.readFileSync(accessTokenPath, 'utf-8'))
 
@@ -49,7 +50,7 @@ module.exports = () => {
 
         // 过期了，重新获取
         else {
-            return getAccessToken()
+            return getAccessToken(config)
         }
 
     }

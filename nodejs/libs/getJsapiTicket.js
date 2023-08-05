@@ -2,14 +2,14 @@ const { get } = require('devby')
 const fs = require('fs')
 const path = require('path')
 
-const jsapiTicketPath = path.resolve(__dirname, '../jsapi_ticket.json')
+const jsapiTicketPath = path.resolve(process.cwd(), './jsapi_ticket.json')
 
 const getAccessToken = require('./getAccessToken')
 
 // 获取access_token
-function getJsapiTicket() {
+function getJsapiTicket(config) {
     return new Promise((resolve, reject) => {
-        getAccessToken().then(accessToken => {
+        getAccessToken(config).then(accessToken => {
 
             // 定义请求地址
             const url = `https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=${accessToken}&type=jsapi`
@@ -39,11 +39,11 @@ function getJsapiTicket() {
     })
 }
 
-module.exports = () => {
+module.exports = (config) => {
 
     // 如果文件不存在，一定需要重新获取
     if (!fs.existsSync(jsapiTicketPath)) {
-        return getJsapiTicket()
+        return getJsapiTicket(config)
     } else {
         let data = JSON.parse(fs.readFileSync(jsapiTicketPath, 'utf-8'))
 
@@ -54,7 +54,7 @@ module.exports = () => {
 
         // 过期了，重新获取
         else {
-            return getJsapiTicket()
+            return getJsapiTicket(config)
         }
 
     }

@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+'use strict';
+
+process.title = 'offiaccount-cli'
+const { log } = require('devby')
+const path = require('path')
+
+const jsonfile = require('../package.json')
+
+// 命令行传递的参数
+const parsed = require("devby").options({
+    "-c": "--config"
+}, process.argv)
+
+if (parsed.config && parsed.config.length > 0) {
+
+    // 读取配置
+    let configFile = require(path.join(process.cwd(), parsed.config[0]))
+
+    // 启动
+    require('../nodejs/index')(configFile)
+
+} else {
+    log(`
+offiaccount-cli@v${jsonfile.version}
+`)
+}
+

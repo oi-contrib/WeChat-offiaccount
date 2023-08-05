@@ -1,14 +1,18 @@
 {
   "name": "wechat-offiaccount",
-  "version": "0.0.0",
+  "version": "0.1.1",
+  "sideEffects": false,
   "scripts": {
-    "dev": "node ./nodejs/index.js"
+    "dev": "node ./bin/run --config offiaccount.config.js"
   },
-  "description": "微信公众号",
+  "bin": {
+    "offiaccount-cli": "bin/run"
+  },
+  "description": "微信公众号辅助调试服务器",
   "author": "zxl20070701",
   "license": "MIT",
   "dependencies": {
-    "devby": "^0.4.4-alpha.0",
+    "devby": "^0.4.6",
     "express": "^4.18.2",
     "sha1": "^1.1.1"
   }

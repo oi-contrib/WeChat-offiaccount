@@ -1,8 +1,9 @@
 const sha1 = require('sha1')
-const { token } = require('./config')
 
-module.exports = () => {
-    return (req, res, next) => {
+module.exports = (config) => {
+    const { token, handler } = config
+
+    return (req, res) => {
 
         /**
          * 如何验证信息来自微信服务器？
@@ -22,9 +23,23 @@ module.exports = () => {
         const sha1Str = sha1(str)
 
         if (sha1Str == signature) {
-            res.send(echostr)
+
+            // 如果是服务器验证
+            if (req.method == 'GET') {
+                res.send(echostr)
+            }
+
+            // 如果是数据请求
+            else if (req.method == 'POST') {
+                if (handler) {
+                    handler.call(this, req, res)
+                } else {
+                    res.end('no handler')
+                }
+            }
+
         } else {
-            res.end('error')
+            res.end('微信服务器验证未通过')
         }
 
     }

@@ -1,10 +1,10 @@
 const sha1 = require('sha1')
-const { appID } = require('./config')
 
-module.exports = () => {
-    return (req, res, next) => {
+module.exports = (config) => {
+    return (req, res) => {
 
         const { url } = req.query
+        const { appID } = config
 
         /**
          * 生成js-sdk的签名
@@ -13,7 +13,7 @@ module.exports = () => {
          * 3、进行sha1加密，最终生成signature
          */
 
-        require('./getJsapiTicket')().then(jsapi_ticket => {
+        require('./getJsapiTicket')(config).then(jsapi_ticket => {
 
             // 获取随机字符串
             const noncestr = (Math.random() + "").split('.')[1]
@@ -32,6 +32,7 @@ module.exports = () => {
             // sha1加密
             const sha1Str = sha1(str)
 
+            res.setHeader('Access-Control-Allow-Origin', '*')
             res.send(JSON.stringify({
                 appId: appID,
                 timestamp,
