@@ -9,7 +9,7 @@ module.exports = (config) => {
     const app = express()
 
     // 静态资源
-    app.use(express.static(path.resolve(__dirname, '../html')))
+    app.use(express.static(path.resolve(__dirname, '../')))
 
     // 获取微信签名
     app.get("/JsApiSignature", JsApiSignature(config))

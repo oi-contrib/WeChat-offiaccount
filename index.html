@@ -4,8 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wxConfig</title>
+    <title>wxConfig 测试页面</title>
+    <script src="./node_modules/zdebug.js/dist/Zdebug.js"></script>
+    <!-- <script src="https://unpkg.com/zdebug.js"></script> -->
     <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script>
+        Zdebug();
+    </script>
 </head>
 
 <body>
@@ -31,11 +36,11 @@
                     });
 
                     wx.error(function (res) {
-                        alert("错误：" + res);
+                        console.error("错误：" + res);
                     });
 
                     wx.ready(function () {
-                        alert('准备好了！');
+                        console.log('准备好了！');
 
                         wx.chooseImage({
                             count: 1, // 默认9
@@ -43,7 +48,7 @@
                             sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
                             success: function (res) {
                                 var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
-                                alert(localIds)
+                                console.log(localIds)
                             }
                         });
                     });

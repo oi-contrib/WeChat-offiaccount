@@ -7,7 +7,7 @@ const jsapiTicketPath = path.resolve(process.cwd(), './jsapi_ticket.json')
 const getAccessToken = require('./getAccessToken')
 
 // 获取access_token
-function getJsapiTicket(config) {
+function getJsapiTicket(config, allData = {}) {
     return new Promise((resolve, reject) => {
         getAccessToken(config).then(accessToken => {
 
@@ -25,7 +25,8 @@ function getJsapiTicket(config) {
                 res.endtime = new Date().valueOf() + (res.expires_in - 300) * 1000
 
                 // 写入文件
-                fs.writeFileSync(jsapiTicketPath, JSON.stringify(res, null, 4))
+                allData[config.appID] = res
+                fs.writeFileSync(jsapiTicketPath, JSON.stringify(allData, null, 4))
 
                 resolve(res.ticket)
             }).catch(err => {
@@ -45,16 +46,17 @@ module.exports = (config) => {
     if (!fs.existsSync(jsapiTicketPath)) {
         return getJsapiTicket(config)
     } else {
-        let data = JSON.parse(fs.readFileSync(jsapiTicketPath, 'utf-8'))
+        let allData = JSON.parse(fs.readFileSync(jsapiTicketPath, 'utf-8'));
+        let data = allData[config.appID]
 
         // 没有过期，直接返回
-        if (data.endtime > new Date().valueOf()) {
+        if (data && data.endtime > new Date().valueOf()) {
             return Promise.resolve(data.ticket)
         }
 
         // 过期了，重新获取
         else {
-            return getJsapiTicket(config)
+            return getJsapiTicket(config, allData)
         }
 
     }

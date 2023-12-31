@@ -1,6 +1,7 @@
 {
   "name": "wechat-offiaccount",
-  "version": "0.1.1",
+  "version": "0.1.2",
+  "description": "微信公众号辅助调试服务器",
   "sideEffects": false,
   "scripts": {
     "dev": "node ./bin/run --config offiaccount.config.js"
@@ -8,12 +9,29 @@
   "bin": {
     "offiaccount-cli": "bin/run"
   },
-  "description": "微信公众号辅助调试服务器",
-  "author": "zxl20070701",
+  "keywords": [
+    "WeChat",
+    "offiaccount"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fragement-contrib/WeChat-offiaccount.git"
+  },
+  "author": {
+    "name": "zxl20070701",
+    "url": "https://zxl20070701.github.io/notebook/home.html"
+  },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fragement-contrib/WeChat-offiaccount/issues"
+  },
+  "homepage": "https://github.com/fragement-contrib/WeChat-offiaccount",
   "dependencies": {
     "devby": "^0.4.6",
     "express": "^4.18.2",
     "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "zdebug.js": "^0.2.0"
   }
 }

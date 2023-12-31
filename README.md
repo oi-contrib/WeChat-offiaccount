@@ -13,7 +13,7 @@
     </a>
 </p>
 
-本项目用于搭建一个微信公众号本地测试环境，都是基于[测试号](http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index)来说明。
+本项目用于搭建一个微信公众号本地测试环境，为了简单，我们基于[测试号](http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index)来说明。
 
 > 非测试号也可以使用，填入正确字段即可，如果有问题，可以[issue](https://github.com/fragement-contrib/WeChat-offiaccount/issues)给我们留言！
 
@@ -29,7 +29,7 @@
 
 ### JS-SDK使用
 
-比如你启动后，手机可以通过```http://192.168.0.6:20000/wxConfig.html```（无需外网可以访问，如果电脑和手机连同一个wifi，像这里的例子，用局域网ip即可）访问，那么，“JS接口安全域名”中的域名配置成```192.168.0.6:20000```即可。
+比如你启动后，手机可以通过```http://192.168.0.6:20000```（无需外网可以访问，如果电脑和手机连同一个wifi，像这里的例子，用局域网ip即可）访问，那么，“JS接口安全域名”中的域名配置成```192.168.0.6:20000```即可。
 
 然后在微信中打开上面的html页面即可（到此为止，你就可以在你的html页面使用[JS-SDK](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html)能力了）。
 
