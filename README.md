@@ -1,5 +1,5 @@
 # [WeChat-offiaccount](https://github.com/fragement-contrib/WeChat-offiaccount)
-微信公众号辅助调试服务器
+微信公众号辅助调试服务器 + 微信官方js-sdk，支持typescript开发
 
 <p>
     <a href="https://zxl20070701.github.io/toolbox/#/npm-download?packages=wechat-offiaccount&interval=7">
@@ -13,7 +13,7 @@
     </a>
 </p>
 
-本项目用于搭建一个微信公众号本地测试环境，为了简单，我们基于[测试号](http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index)来说明。
+本项目用于搭建一个微信公众号本地测试环境，同时集成了微信官方js-sdk，支持typescript开发，为了简单，我们基于[测试号](http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index)来说明。
 
 > 非测试号也可以使用，填入正确字段即可，如果有问题，可以[issue](https://github.com/fragement-contrib/WeChat-offiaccount/issues)给我们留言！
 
@@ -73,6 +73,7 @@ npm run offiaccount
 接着，我们用浏览器最新的fetch举例子：
 
 ```js
+import wx from "wechat-offiaccount"
 fetch("http://" + window.location.hostname + ":8080/JsApiSignature?url=" + window.location.href.split('#')[0], {
     method: "get"
 }).then(function (response) {
@@ -99,7 +100,8 @@ fetch("http://" + window.location.hostname + ":8080/JsApiSignature?url=" + windo
 上面已经配置好了，并且申请了```wx.chooseImage```权限，后续用的时候，只需要：
 
 ```js
- wx.ready(function () {
+import wx from "wechat-offiaccount"
+wx.ready(function () {
     console.log('准备好了！')
 
     // todo

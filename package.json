@@ -1,8 +1,10 @@
 {
   "name": "wechat-offiaccount",
-  "version": "0.1.2",
-  "description": "微信公众号辅助调试服务器",
+  "version": "0.2.0",
+  "description": "微信公众号辅助调试服务器 + 微信官方js-sdk，支持typescript开发",
   "sideEffects": false,
+  "main": "src/index.js",
+  "typings": "./types/index.d.ts",
   "scripts": {
     "dev": "node ./bin/run --config offiaccount.config.js"
   },

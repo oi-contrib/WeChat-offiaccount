@@ -12,3 +12,8 @@ v0.1.2:
     changes:
       - 优化改造
         1、配置添加appID关联以支持多用户切换
+v0.2.0:
+    date:2024-03-10
+    changes:
+      - 新增功能
+        1、添加jweixin-1.6.0.js及相关types定义
