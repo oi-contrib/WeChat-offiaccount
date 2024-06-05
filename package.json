@@ -1,6 +1,6 @@
 {
   "name": "wechat-offiaccount",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "微信公众号辅助调试服务器 + 微信官方js-sdk，支持typescript开发",
   "sideEffects": false,
   "main": "src/index.js",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fragement-contrib/WeChat-offiaccount.git"
+    "url": "git+https://github.com/oi-contrib/WeChat-offiaccount.git"
   },
   "author": {
     "name": "zxl20070701",
@@ -25,9 +25,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fragement-contrib/WeChat-offiaccount/issues"
+    "url": "https://github.com/oi-contrib/WeChat-offiaccount/issues"
   },
-  "homepage": "https://github.com/fragement-contrib/WeChat-offiaccount",
+  "homepage": "https://github.com/oi-contrib/WeChat-offiaccount",
   "dependencies": {
     "devby": "^0.4.6",
     "express": "^4.18.2",

@@ -573,6 +573,27 @@ declare namespace wx {
    */
   function chooseWXPay(params: IchooseWXPay): void;
   /*=============================微信支付================================*/
+  /*=============================微信隐私协议================================*/
+
+  /**
+   * 打开隐私协议内容
+   */
+  function openPrivacyContract(params: {
+    success?: (res: any) => void
+    fail?: (res: any) => void
+    complete?: () => void
+  }): void
+
+  /**
+   * 是否需要授权
+   */
+  function getPrivacySetting(params: {
+    success?: (res: any) => void
+    fail?: (res: any) => void
+    complete?: () => void
+  }): void
+  
+  /*=============================微信隐私协议================================*/
   /*=============================微信小程序==============================*/
   interface miniProgramMethodsParams extends BaseParams {
     url: string;

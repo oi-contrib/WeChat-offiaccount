@@ -17,3 +17,10 @@ v0.2.0:
     changes:
       - 新增功能
         1、添加jweixin-1.6.0.js及相关types定义
+v0.2.1:
+    date:2024-06-05
+    changes:
+      - 问题修复
+        1、补充微信小程序相关types
+            * wx.openPrivacyContract()
+            * wx.getPrivacySetting()

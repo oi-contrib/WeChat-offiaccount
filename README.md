@@ -1,4 +1,4 @@
-# [WeChat-offiaccount](https://github.com/fragement-contrib/WeChat-offiaccount)
+# [WeChat-offiaccount](https://github.com/oi-contrib/WeChat-offiaccount)
 微信公众号辅助调试服务器 + 微信官方js-sdk，支持typescript开发
 
 <p>
@@ -8,14 +8,16 @@
     <a href="https://www.npmjs.com/package/wechat-offiaccount">
         <img src="https://img.shields.io/npm/v/wechat-offiaccount.svg" alt="Version">
     </a>
-    <a href="https://github.com/fragement-contrib/WeChat-offiaccount" target='_blank'>
-        <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/fragement-contrib/WeChat-offiaccount?style=social">
+    <a href="https://github.com/oi-contrib/WeChat-offiaccount" target='_blank'>
+        <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/oi-contrib/WeChat-offiaccount?style=social">
     </a>
 </p>
 
+<img src="https://nodei.co/npm/wechat-offiaccount.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM">
+
 本项目用于搭建一个微信公众号本地测试环境，同时集成了微信官方js-sdk，支持typescript开发，为了简单，我们基于[测试号](http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index)来说明。
 
-> 非测试号也可以使用，填入正确字段即可，如果有问题，可以[issue](https://github.com/fragement-contrib/WeChat-offiaccount/issues)给我们留言！
+> 非测试号也可以使用，填入正确字段即可，如果有问题，可以[issue](https://github.com/oi-contrib/WeChat-offiaccount/issues)给我们留言！
 
 ## 如何本地调试？
 
