@@ -3,13 +3,13 @@
 'use strict';
 
 process.title = 'offiaccount-cli'
-const { log } = require('devby')
+const { log } = require('../nodejs/utils/log')
 const path = require('path')
 
 const jsonfile = require('../package.json')
 
 // 命令行传递的参数
-const parsed = require("devby").options({
+const parsed = require("../nodejs/utils/options")({
     "-c": "--config"
 }, process.argv)
 
@@ -19,7 +19,7 @@ if (parsed.config && parsed.config.length > 0) {
     let configFile = require(path.join(process.cwd(), parsed.config[0]))
 
     // 启动
-    require('../nodejs/index')(configFile)
+    require('../nodejs/server')(configFile)
 
 } else {
     log(`

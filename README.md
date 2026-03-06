@@ -132,6 +132,20 @@ module.exports = config
 
 然后需要启动后部署到外网可以访问的服务器上，最后就可以作为微信公众号后台服务器使用，然后进行各种测试学习了。
 
+### 调试服务器API接口
+
+> v0.3.0 新增
+
+为了更好的提供服务，对部分可能需要二次开发的接口（开发服务器）进行了封装，比如：
+
+一、微信sdk验证签名接口
+
+```js
+const { JsApiSignature } = require("wechat-offiaccount/nodejs/index")
+```
+
+具体使用参考 [./nodejs/server.js](./nodejs/server.js)
+
 ## 版权
 
 MIT License

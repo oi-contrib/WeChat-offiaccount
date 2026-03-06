@@ -1,17 +1,16 @@
 const sha1 = require('sha1')
 
-module.exports = (config) => {
-    return (req, res) => {
+module.exports = (url, config) => {
+    const { appID } = config
 
-        const { url } = req.query
-        const { appID } = config
+    /**
+     * 生成js-sdk的签名
+     * 1、组合参与签名的四个参数：jsapi_ticket（临时票据）、noncestr（随机字符串）、timestamp（时间戳）、url（当前服务器地址）
+     * 2、将其进行字典序排序，以‘&’拼接在一起
+     * 3、进行sha1加密，最终生成signature
+     */
 
-        /**
-         * 生成js-sdk的签名
-         * 1、组合参与签名的四个参数：jsapi_ticket（临时票据）、noncestr（随机字符串）、timestamp（时间戳）、url（当前服务器地址）
-         * 2、将其进行字典序排序，以‘&’拼接在一起
-         * 3、进行sha1加密，最终生成signature
-         */
+    return new Promise()((resolve, reject) => {
 
         require('./getJsapiTicket')(config).then(jsapi_ticket => {
 
@@ -32,16 +31,14 @@ module.exports = (config) => {
             // sha1加密
             const sha1Str = sha1(str)
 
-            res.setHeader('Access-Control-Allow-Origin', '*')
-            res.send(JSON.stringify({
+            resolve({
                 appId: appID,
                 timestamp,
                 nonceStr: noncestr,
                 signature: sha1Str
-            }))
-
+            })
         })
 
-    }
+    })
 
 }

@@ -1,4 +1,4 @@
-const { get } = require('devby')
+const { get } = require('../utils/remote')
 const fs = require('fs')
 const path = require('path')
 

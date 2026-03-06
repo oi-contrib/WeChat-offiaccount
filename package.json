@@ -1,6 +1,6 @@
 {
   "name": "wechat-offiaccount",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "微信公众号辅助调试服务器 + 微信官方js-sdk，支持typescript开发",
   "sideEffects": false,
   "main": "src/index.js",
@@ -29,11 +29,10 @@
   },
   "homepage": "https://github.com/oi-contrib/WeChat-offiaccount",
   "dependencies": {
-    "devby": "^0.4.6",
     "express": "^4.18.2",
     "sha1": "^1.1.1"
   },
   "devDependencies": {
-    "zdebug.js": "^0.2.0"
+    "zdebug.js": "^0.3.0"
   }
 }

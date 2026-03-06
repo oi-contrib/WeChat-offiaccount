@@ -24,3 +24,9 @@ v0.2.1:
         1、补充微信小程序相关types
             * wx.openPrivacyContract()
             * wx.getPrivacySetting()
+v0.3.0:
+    date:2026-03-07
+    changes:
+      - 新增功能
+        1、微信公众号辅助调试服务器部分功能暴露API接口
+            * JsApiSignature 微信sdk验证签名
